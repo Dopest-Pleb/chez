@@ -19,7 +19,7 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
-    if (!msg.startsWith(prefix)) return;
+    if (!msg.content.startsWith(prefix)) return;
     let args = msg.content.split(" ").splice(1);
     let command = msg.content.substring(prefix.length).split(" ");
     let cmd = client.commands.get(command);
