@@ -8,8 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Dopest-Pleb/chez.git"
+    "url": "git+https://github.com/DopestPleb/chez.git"
   },
   "author": "DopestPleb",
   "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.4.2",
+    "install": "^0.12.2"
+  }
 }
