@@ -16,10 +16,7 @@ fs.readdir("./commands/", (err, files) => {
 });
 
 client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
-  for (guild in client.guilds) {
-      guild.leave();
-  }
+    console.log(`Logged in as ${client.user.tag}!`);
 });
 
 client.on('message', msg => {
@@ -27,7 +24,7 @@ client.on('message', msg => {
     if (!msg.content.startsWith(prefix)) return;
     console.log("okay2");
     let args = msg.content.split(" ").splice(1);
-    let command = msg.content.substring(prefix.length).split(" ");
+    let command = msg.content.substring(prefix.length).split(" ")[0];
     let cmd = client.commands.get(command);
     console.log(command);
     console.log(cmd);
