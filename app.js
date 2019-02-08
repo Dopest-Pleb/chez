@@ -1,9 +1,19 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const fs = require("fs");
-const prefix = ">"
+const configFile = require("./config.json");
 
 client.commands = new Discord.Collection();
+client.config = configFile;
+
+fs.readdir("./events/", (err, files) => {
+    if (err) return console.error(err);
+    files.forEach(file => {
+        const event = require(`./events/${file}`);
+        let eventName = file.split(".")[0];
+        client.on(eventName, event.bind(null, client));
+    });
+});
 
 fs.readdir("./commands/", (err, files) => {
     if (err) return console.error(err);
@@ -19,15 +29,5 @@ client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
 });
 
-client.on('message', msg => {
-    if (msg.author.bot) return;
-    if (!msg.content.startsWith(prefix)) return;
-    
-    let args = msg.content.split(" ").splice(1);
-    let command = msg.content.substring(prefix.length).split(" ")[0];
-    let cmd = client.commands.get(command);
-    
-    if (cmd) cmd.run(client, msg, args);
-});
 
 client.login(process.env.BOT_TOKEN);
