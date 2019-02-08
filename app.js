@@ -20,9 +20,9 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
-    console.log("okay1");
+    if (msg.author.bot) return;
     if (!msg.content.startsWith(prefix)) return;
-    console.log("okay2");
+    
     let args = msg.content.split(" ").splice(1);
     let command = msg.content.substring(prefix.length).split(" ")[0];
     let cmd = client.commands.get(command);
