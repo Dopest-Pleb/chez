@@ -9,8 +9,8 @@ client.on('ready', () => {
 
 client.on('message', msg => {
     let args = msg.content.slice(prefix).split(' ');
-    if (message.content.startsWith(">ping")) {
-        message.channel.send(args);
+    if (msg.content.startsWith(">ping")) {
+        msg.channel.send(args);
     }
 });
 
