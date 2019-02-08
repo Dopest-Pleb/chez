@@ -8,6 +8,7 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
+    if (msg.author.bot) return;
     let args = msg.content.slice(prefix).split(' ');
     if (msg.content.startsWith(">ping")) {
         msg.channel.send(args);
