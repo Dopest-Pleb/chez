@@ -17,18 +17,21 @@ fs.readdir("./commands/", (err, files) => {
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
+  for (guild in client.guilds) {
+      guild.leave();
+  }
 });
 
 client.on('message', msg => {
-    console.log("okay");
+    console.log("okay1");
     if (!msg.content.startsWith(prefix)) return;
-    console.log("okay");
+    console.log("okay2");
     let args = msg.content.split(" ").splice(1);
     let command = msg.content.substring(prefix.length).split(" ");
     let cmd = client.commands.get(command);
     
     if (cmd) {
-        console.log("okay");
+        console.log("okay3");
         cmd.run(client, msg, args);
     }
 });
