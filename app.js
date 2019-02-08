@@ -29,6 +29,8 @@ client.on('message', msg => {
     let args = msg.content.split(" ").splice(1);
     let command = msg.content.substring(prefix.length).split(" ");
     let cmd = client.commands.get(command);
+    console.log(command);
+    console.log(cmd);
     
     if (cmd) {
         console.log("okay3");
