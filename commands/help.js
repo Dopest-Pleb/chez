@@ -11,7 +11,7 @@ exports.run = (client, message, args) => {
         fields: [
             {
                 name: "General",
-                value: Object.keys(client.commands)
+                value: Object.keys(client.commands).join("\n")
             },
             {
                 name: "Masked links",
