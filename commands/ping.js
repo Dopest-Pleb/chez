@@ -1,5 +1,5 @@
-exports.run = (bot, message, args) => {
-    message.reply(`Pong! ${bot.ping}ms`);
+exports.run = (client, message, args) => {
+    message.reply(`Pong! ${client.ping}ms`);
 } 
 
 exports.help = {
