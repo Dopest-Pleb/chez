@@ -1,6 +1,6 @@
 exports.run = (client, message, args) => {
     message.channel.fetchMessages({limit : args[0]}).then(messages => {
-        for (let message of messages) {
+        for (let message of messages.values()) {
             message.delete();
         }
     });
