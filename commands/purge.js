@@ -1,5 +1,5 @@
 exports.run = (client, message, args) => {
-    message.reply(`Pong! ${client.ping}ms`);
+    console.log(message.channel.fetchMessages({limit : args[0]}));
 } 
 
 exports.help = {
