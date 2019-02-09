@@ -6,15 +6,6 @@ const configFile = require("./config.json");
 client.commands = new Discord.Collection();
 client.config = configFile;
 
-fs.readdir("./events/", (err, files) => {
-    if (err) return console.error(err);
-    files.forEach(file => {
-        const event = require(`./events/${file}`);
-        let eventName = file.split(".")[0];
-        client.on(eventName, event.bind(null, client));
-    });
-});
-
 fs.readdir("./commands/", (err, files) => {
     if (err) return console.error(err);
     files.forEach(file => {
@@ -25,9 +16,13 @@ fs.readdir("./commands/", (err, files) => {
     });
 });
 
-client.on('ready', () => {
-    console.log(`Logged in as ${client.user.tag}!`);
+fs.readdir("./events/", (err, files) => {
+    if (err) return console.error(err);
+    files.forEach(file => {
+        const event = require(`./events/${file}`);
+        let eventName = file.split(".")[0];
+        client.on(eventName, event.bind(null, client));
+    });
 });
-
 
 client.login(process.env.BOT_TOKEN);
