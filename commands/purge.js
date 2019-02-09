@@ -1,8 +1,7 @@
 exports.run = (client, message, args) => {
     message.channel.fetchMessages({limit : args[0]}).then(messages => {
         for (let message of messages) {
-            console.log(message);
-            messages[message].delete();
+            message.delete();
         }
     });
 } 
