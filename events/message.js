@@ -5,7 +5,7 @@ module.exports = (client, msg) => {
 
     let args = msg.content.split(" ").splice(1);
     let command = msg.content.substring(client.config.length).split(" ")[0];
-    console.log(cmd);
+    console.log(command);
     let cmd = client.commands.get(command);
     console.log(cmd);
     
