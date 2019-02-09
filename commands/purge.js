@@ -1,5 +1,5 @@
 exports.run = (client, message, args) => {
-    console.log(message.channel.fetchMessages({limit : args[0]}));
+    message.channel.fetchMessages({limit : args[0]}).then(m => console.log(m));
 } 
 
 exports.help = {
