@@ -5,5 +5,6 @@ exports.run = (client, message, args) => {
 exports.help = {
     name: 'ping',
     usage: '>ping',
-    description: 'Returns the bot\'s latency in milliseconds'
+    description: 'Returns the bot\'s latency in milliseconds',
+    category: 'General'
 }
