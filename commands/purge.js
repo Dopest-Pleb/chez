@@ -1,8 +1,5 @@
 exports.run = (client, message, args) => {
-    message.channel.fetchMessages({limit : args[0]+1}).then(messages => {
-        message.reply(Array.from(messages).length);
-        message.channel.send(`${args[0]} messages deleted!`);
-    });
+    message.channel.bulkDelete(args[0]+1);
 } 
 
 exports.help = {
