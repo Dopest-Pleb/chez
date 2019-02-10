@@ -3,6 +3,7 @@ exports.run = (client, message, args) => {
         for (let message of messages.values()) {
             message.delete();
         }
+        message.channel.send(`${args[0]} messages deleted!`).delete(4000);
     });
 } 
 
